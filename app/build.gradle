@@ -9,9 +9,14 @@ android {
     defaultConfig {
         applicationId "com.victory.powermenu"
         minSdk 26
-        targetSdk 34
-        versionCode 3
-        versionName "1.1.0"
+        // Deliberately below 33: Android 13+ blocks the accessibility service
+        // for sideloaded apps ONLY when targetSdk >= 33 ("Restricted setting").
+        // Targeting 31 sidesteps that block entirely, so the service can be
+        // enabled normally. (We distribute via GitHub, not the Play Store,
+        // which is the only place the targetSdk floor is enforced.)
+        targetSdk 31
+        versionCode 4
+        versionName "1.2.0"
     }
 
     buildTypes {
