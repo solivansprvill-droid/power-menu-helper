@@ -1,0 +1,3 @@
+# power-menu-helper
+
+Initializing repository...
