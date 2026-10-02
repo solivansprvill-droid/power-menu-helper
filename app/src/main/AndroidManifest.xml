@@ -52,5 +52,20 @@
             </intent-filter>
         </service>
 
+        <!-- Device admin (force-lock only): enables one-tap lock screen even
+             when the accessibility service is blocked by the system. -->
+        <receiver
+            android:name=".LockAdminReceiver"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin" />
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+
     </application>
 </manifest>

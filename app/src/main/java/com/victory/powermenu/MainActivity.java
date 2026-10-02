@@ -1,7 +1,6 @@
 package com.victory.powermenu;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,9 +12,9 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-    private TextView statusView;
+    private TextView statusView, adminStatusView;
     private Button powerBtn, lockBtn;
-    private View restrictedCard;
+    private View restrictedCard, adminCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +22,14 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         statusView = findViewById(R.id.txt_status);
+        adminStatusView = findViewById(R.id.txt_admin_status);
         powerBtn = findViewById(R.id.btn_power_menu);
         lockBtn = findViewById(R.id.btn_lock);
         restrictedCard = findViewById(R.id.card_restricted);
+        adminCard = findViewById(R.id.card_admin);
         Button enableBtn = findViewById(R.id.btn_enable_service);
         Button fixRestrictedBtn = findViewById(R.id.btn_fix_restricted);
+        Button activateAdminBtn = findViewById(R.id.btn_activate_admin);
 
         enableBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +54,14 @@ public class MainActivity extends Activity {
             }
         });
 
+        // Device admin: lock screen works even without accessibility.
+        activateAdminBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AdminLock.requestActivation(MainActivity.this);
+            }
+        });
+
         powerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,17 +77,28 @@ public class MainActivity extends Activity {
         lockBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PowerMenuService svc = PowerMenuService.getInstance();
-                if (svc == null) {
-                    Toast.makeText(MainActivity.this, R.string.service_not_enabled, Toast.LENGTH_LONG).show();
-                } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                    PowerMenuService.vibrate((short) 40);
-                    svc.lockScreen();
-                } else {
-                    Toast.makeText(MainActivity.this, R.string.lock_unsupported, Toast.LENGTH_LONG).show();
+                boolean locked = tryLockScreen();
+                if (!locked) {
+                    Toast.makeText(MainActivity.this, R.string.lock_needs_setup, Toast.LENGTH_LONG).show();
                 }
             }
         });
+    }
+
+    /** Try accessibility lock first, fall back to device-admin force-lock. */
+    private boolean tryLockScreen() {
+        PowerMenuService svc = PowerMenuService.getInstance();
+        if (svc != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            PowerMenuService.vibrate((short) 40);
+            svc.lockScreen();
+            return true;
+        }
+        if (AdminLock.isDeviceAdminActive(this)) {
+            PowerMenuService.vibrate((short) 40);
+            AdminLock.lockNow(this);
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -89,16 +110,29 @@ public class MainActivity extends Activity {
     private void refreshStatus() {
         boolean on = PowerMenuService.getInstance() != null
                 && isServiceEnabledInSettings();
+        boolean admin = AdminLock.isDeviceAdminActive(this);
+
         statusView.setText(on ? R.string.status_on : R.string.status_off);
         statusView.setBackgroundResource(on ? R.drawable.pill_on : R.drawable.pill_off);
+
+        adminStatusView.setText(admin ? R.string.admin_status_on : R.string.admin_status_off);
+        adminStatusView.setBackgroundResource(admin ? R.drawable.pill_on : R.drawable.pill_off);
+
+        // Lock works via accessibility OR device admin.
+        boolean lockable = on || admin;
+        lockBtn.setEnabled(lockable);
+        lockBtn.setAlpha(lockable ? 1f : 0.45f);
+
         powerBtn.setEnabled(on);
-        lockBtn.setEnabled(on);
         powerBtn.setAlpha(on ? 1f : 0.45f);
-        lockBtn.setAlpha(on ? 1f : 0.45f);
+
         // Show the sideload-restriction helper only on Android 13+ while the
         // service is still disabled (once enabled, the problem is solved).
         restrictedCard.setVisibility(
                 (!on && Build.VERSION.SDK_INT >= 33) ? View.VISIBLE : View.GONE);
+
+        // Show the device-admin card while neither channel is active.
+        adminCard.setVisibility((!on && !admin) ? View.VISIBLE : View.GONE);
     }
 
     /** Double-check the system settings, covers the "enabled but process restarted" edge case. */

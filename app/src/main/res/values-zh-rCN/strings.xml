@@ -17,6 +17,14 @@
     <string name="restricted_body">Android 13 及以上系统会默认拦截侧载应用开启无障碍服务（系统安全策略，所有此类应用均会受影响）。解决方法：① 点击下方按钮打开本应用的「应用信息」页；② 点右上角「⋮」菜单；③ 点「允许受限制的设置」；④ 返回后重新点「去开启无障碍服务」即可。</string>
     <string name="btn_fix_restricted">打开应用信息（允许受限制的设置）</string>
 
+    <string name="admin_status_on">设备管理员（锁屏）：已开启</string>
+    <string name="admin_status_off">设备管理员（锁屏）：未开启</string>
+    <string name="admin_card_title">无障碍开不了？锁屏照样能用</string>
+    <string name="admin_card_body">激活下方的设备管理员（仅使用「锁屏」策略），「一键锁屏」按钮立即可用，不需要无障碍权限。之后若成功开启无障碍服务，电源菜单/重启也会一并可用。注意：激活后卸载应用需先在系统设置中停用设备管理员。</string>
+    <string name="btn_activate_admin">激活设备管理员（用于一键锁屏）</string>
+    <string name="admin_explanation">电源菜单助手仅使用该策略在你点击「一键锁屏」时锁屏，不做其他任何事情。</string>
+    <string name="lock_needs_setup">锁屏需先开启无障碍服务或激活设备管理员</string>
+
     <string name="feature_title">减少物理电源按键的负担</string>
     <string name="feature_power">从默认系统电源菜单关机、重启——再也不用长按侧键。</string>
     <string name="feature_lock">一键锁屏，减少按键磨损。</string>

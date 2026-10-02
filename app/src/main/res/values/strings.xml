@@ -17,6 +17,14 @@
     <string name="restricted_body">Android 13+ blocks accessibility access for sideloaded apps by default (a system security policy that affects all such apps). Fix: ① tap the button below to open this app’s App Info page; ② tap the ⋮ menu in the top-right corner; ③ tap “Allow restricted settings”; ④ go back and enable the accessibility service again.</string>
     <string name="btn_fix_restricted">Open App Info (Allow restricted settings)</string>
 
+    <string name="admin_status_on">Device admin (lock): ON</string>
+    <string name="admin_status_off">Device admin (lock): OFF</string>
+    <string name="admin_card_title">Can’t enable accessibility? Lock screen still works</string>
+    <string name="admin_card_body">Activate the device admin (force-lock only) below and the “Lock Screen” button works immediately — no accessibility needed. If accessibility is later enabled, power menu / restart will work too. To uninstall the app afterwards, deactivate the device admin in system settings first.</string>
+    <string name="btn_activate_admin">Activate Device Admin (for one-tap lock)</string>
+    <string name="admin_explanation">PowerMenu Helper uses this policy only to lock the screen when you tap “Lock Screen”. Nothing else.</string>
+    <string name="lock_needs_setup">Lock needs either the accessibility service or device admin enabled first.</string>
+
     <string name="feature_title">Reduce the load on your physical power button</string>
     <string name="feature_power">Open the default system power menu to power off or restart — no more long-pressing the side key.</string>
     <string name="feature_lock">One tap to lock the screen, saving wear on the button.</string>
