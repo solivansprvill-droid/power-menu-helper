@@ -15,6 +15,7 @@ public class MainActivity extends Activity {
 
     private TextView statusView;
     private Button powerBtn, lockBtn;
+    private View restrictedCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,9 @@ public class MainActivity extends Activity {
         statusView = findViewById(R.id.txt_status);
         powerBtn = findViewById(R.id.btn_power_menu);
         lockBtn = findViewById(R.id.btn_lock);
+        restrictedCard = findViewById(R.id.card_restricted);
         Button enableBtn = findViewById(R.id.btn_enable_service);
+        Button fixRestrictedBtn = findViewById(R.id.btn_fix_restricted);
 
         enableBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +35,23 @@ public class MainActivity extends Activity {
                 startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
             }
         });
+
+        // Android 13+: sideloaded apps are blocked from enabling accessibility
+        // until the user taps "Allow restricted settings" on the App Info page.
+        fixRestrictedBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent i = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                            android.net.Uri.fromParts("package", getPackageName(), null));
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(i);
+                } catch (Exception e) {
+                    Toast.makeText(MainActivity.this, R.string.service_not_enabled, Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
         powerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,6 +95,10 @@ public class MainActivity extends Activity {
         lockBtn.setEnabled(on);
         powerBtn.setAlpha(on ? 1f : 0.45f);
         lockBtn.setAlpha(on ? 1f : 0.45f);
+        // Show the sideload-restriction helper only on Android 13+ while the
+        // service is still disabled (once enabled, the problem is solved).
+        restrictedCard.setVisibility(
+                (!on && Build.VERSION.SDK_INT >= 33) ? View.VISIBLE : View.GONE);
     }
 
     /** Double-check the system settings, covers the "enabled but process restarted" edge case. */
