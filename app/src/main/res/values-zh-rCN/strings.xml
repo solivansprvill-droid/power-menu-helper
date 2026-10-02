@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">电源菜单助手</string>
+    <string name="accessibility_service_label">电源菜单助手服务</string>
+    <string name="accessibility_service_description">电源菜单助手需要无障碍权限，仅用于代您执行系统全局操作：打开电源菜单（关机/重启）和锁定屏幕。本服务不会读取、收集或上传任何屏幕内容，不监听任何事件，不存储任何数据。</string>
+    <string name="tile_label">电源菜单</string>
+
+    <string name="status_on">无障碍服务：已开启</string>
+    <string name="status_off">无障碍服务：未开启</string>
+    <string name="btn_enable_service">去开启无障碍服务</string>
+    <string name="btn_power_menu">打开电源菜单（关机 / 重启）</string>
+    <string name="btn_lock">一键锁屏</string>
+    <string name="service_not_enabled">请先开启无障碍服务</string>
+    <string name="lock_unsupported">锁屏功能需要 Android 9 及以上系统</string>
+
+    <string name="feature_title">减少物理电源按键的负担</string>
+    <string name="feature_power">从默认系统电源菜单关机、重启——再也不用长按侧键。</string>
+    <string name="feature_lock">一键锁屏，减少按键磨损。</string>
+    <string name="feature_tile">把「电源菜单」磁贴添加到快捷设置，任意界面一键呼出。</string>
+    <string name="how_title">开启方法</string>
+    <string name="how_step1">1. 点击「去开启无障碍服务」。</string>
+    <string name="how_step2">2. 在列表中找到「电源菜单助手」并打开开关。</string>
+    <string name="how_step3">3. 返回本页点击按钮即可使用。</string>
+    <string name="privacy_title">隐私说明</string>
+    <string name="privacy_body">本应用完全离线运行，不申请网络权限，无广告、不收集任何数据。无障碍权限仅用于在您主动点击时执行全局操作（打开电源菜单 / 锁屏）。</string>
+</resources>

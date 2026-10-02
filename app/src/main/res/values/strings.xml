@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PowerMenu Helper</string>
+    <string name="accessibility_service_label">PowerMenu Helper Service</string>
+    <string name="accessibility_service_description">PowerMenu Helper needs accessibility access solely to invoke system global actions on your behalf: opening the power menu (power off / restart) and locking the screen. It does NOT observe, collect or transmit any screen content. The service reads no events and stores nothing.</string>
+    <string name="tile_label">Power Menu</string>
+
+    <string name="status_on">Accessibility service: ON</string>
+    <string name="status_off">Accessibility service: OFF</string>
+    <string name="btn_enable_service">Enable Accessibility Service</string>
+    <string name="btn_power_menu">Open Power Menu (Power off / Restart)</string>
+    <string name="btn_lock">Lock Screen</string>
+    <string name="service_not_enabled">Please enable the accessibility service first.</string>
+    <string name="lock_unsupported">Locking the screen requires Android 9 or above.</string>
+
+    <string name="feature_title">Reduce the load on your physical power button</string>
+    <string name="feature_power">Open the default system power menu to power off or restart — no more long-pressing the side key.</string>
+    <string name="feature_lock">One tap to lock the screen, saving wear on the button.</string>
+    <string name="feature_tile">Add the “Power Menu” tile to Quick Settings and trigger it from any screen.</string>
+    <string name="how_title">How to enable</string>
+    <string name="how_step1">1. Tap “Enable Accessibility Service”.</string>
+    <string name="how_step2">2. Find PowerMenu Helper in the list and turn it on.</string>
+    <string name="how_step3">3. Come back and tap the buttons. Done.</string>
+    <string name="privacy_title">Privacy</string>
+    <string name="privacy_body">This app works fully offline, has no internet permission, shows no ads and collects no data. The accessibility service is used only to perform global actions (power dialog / lock screen) at your request.</string>
+</resources>

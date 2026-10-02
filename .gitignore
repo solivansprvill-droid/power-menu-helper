@@ -1,0 +1,14 @@
+# Build outputs
+build/
+app/build/
+.gradle/
+local.properties
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+captures/
+
+# Toolchain (never commit)
+_toolchain/

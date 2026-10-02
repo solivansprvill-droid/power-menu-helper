@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Power symbol (IEC 5010): circle with a vertical bar on top. Original vector artwork. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M13,3h-2v8h2V3zM17.65,5.93l-1.42,-1.42c-0.48,-0.48 -1.26,-0.44 -1.68,0.09l-0.01,0.01c-0.36,0.46 -0.28,1.12 0.12,1.52c0.08,0.08 0.16,0.17 0.24,0.26C16.16,7.7 17,9.27 17,11c0,2.76 -2.24,5 -5,5s-5,-2.24 -5,-5c0,-1.73 0.84,-3.3 2.1,-4.61c0.08,-0.09 0.16,-0.18 0.24,-0.26c0.4,-0.4 0.48,-1.06 0.12,-1.52l-0.01,-0.01c-0.42,-0.53 -1.2,-0.57 -1.68,-0.09L6.35,5.93C4.9,7.39 4,9.4 4,11.61C4,16.03 7.58,19.61 12,19.61s8,-3.58 8,-8C20,9.4 19.1,7.39 17.65,5.93z" />
+</vector>
