@@ -14,7 +14,7 @@
     <string name="lock_unsupported">Locking the screen requires Android 9 or above.</string>
 
     <string name="restricted_title">Seeing “Restricted setting”?</string>
-    <string name="restricted_body">Android 13+ blocks accessibility access for sideloaded apps by default (a system security policy that affects all such apps). Fix: ① tap the button below to open this app’s App Info page; ② tap the ⋮ menu in the top-right corner; ③ tap “Allow restricted settings”; ④ go back and enable the accessibility service again.</string>
+    <string name="restricted_body">On Android 13+, an app installed from an APK file (not from an app store) cannot turn on accessibility until you allow it once — the switch stays greyed out. This is a system policy based on how the app was installed, and it affects all such apps. Fix: ① tap the button below to open this app’s App Info page; ② tap the ⋮ menu in the top-right corner; ③ tap “Allow restricted settings” and authenticate; ④ go back and enable the accessibility service. On Xiaomi/MIUI, if there is no ⋮ menu: open this app once, swipe it away from Recents, then long-press its icon → App info, and the menu appears. MIUI also shows a warning with a countdown when you turn the service on — wait for the timer to finish, then confirm. If a pop-up complains that another app is overlapping, temporarily switch from full-screen gestures to button navigation, enable the service, then switch back.</string>
     <string name="btn_fix_restricted">Open App Info (Allow restricted settings)</string>
 
     <string name="admin_status_on">Device admin (lock): ON</string>
@@ -30,9 +30,9 @@
     <string name="feature_lock">One tap to lock the screen, saving wear on the button.</string>
     <string name="feature_tile">Add the “Power Menu” tile to Quick Settings and trigger it from any screen.</string>
     <string name="how_title">How to enable</string>
-    <string name="how_step1">1. Tap “Enable Accessibility Service”.</string>
-    <string name="how_step2">2. Find PowerMenu Helper in the list and turn it on.</string>
-    <string name="how_step3">3. Come back and tap the buttons. Done.</string>
+    <string name="how_step1">1. On Android 13+, if the service switch is greyed out, first allow restricted settings using the card above.</string>
+    <string name="how_step2">2. Tap “Enable Accessibility Service”, find PowerMenu Helper and turn it on (on MIUI: Settings → Additional settings → Accessibility → Installed apps).</string>
+    <string name="how_step3">3. Come back and tap the buttons. Done. On MIUI, also turn on Autostart and set Battery saver → No restrictions for this app so the service stays on.</string>
     <string name="privacy_title">Privacy</string>
     <string name="privacy_body">This app works fully offline, has no internet permission, shows no ads and collects no data. The accessibility service is used only to perform global actions (power dialog / lock screen) at your request.</string>
 </resources>
