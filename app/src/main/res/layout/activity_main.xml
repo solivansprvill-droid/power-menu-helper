@@ -54,40 +54,6 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_enable_service"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/btn_outline"
-            android:text="@string/btn_enable_service"
-            android:textAllCaps="false"
-            android:textColor="@color/accent"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/btn_power_menu"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/btn_primary"
-            android:text="@string/btn_power_menu"
-            android:textAllCaps="false"
-            android:textColor="#0B120D"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/btn_lock"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/btn_secondary"
-            android:text="@string/btn_lock"
-            android:textAllCaps="false"
-            android:textColor="@color/text_primary"
-            android:textSize="16sp" />
-
         <LinearLayout
             android:id="@+id/card_restricted"
             android:layout_width="match_parent"
@@ -126,6 +92,41 @@
                 android:textColor="#FFB74D"
                 android:textSize="14sp" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_enable_service"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/btn_outline"
+            android:text="@string/btn_enable_service"
+            android:textAllCaps="false"
+            android:textColor="@color/accent"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_power_menu"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/btn_primary"
+            android:text="@string/btn_power_menu"
+            android:textAllCaps="false"
+            android:textColor="#0B120D"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_lock"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/btn_secondary"
+            android:text="@string/btn_lock"
+            android:textAllCaps="false"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp" />
+
 
         <LinearLayout
             android:id="@+id/card_admin"
